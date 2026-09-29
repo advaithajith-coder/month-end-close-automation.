@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Quincy Bookstore — Month-End Close</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&family=Spectral:ital,wght@0,400;0,600;1,400&display=swap">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="ledger">
+    <!-- the cloth spine: who the books belong to, and the sections of the book -->
+    <aside class="spine">
+      <div class="spine-title">
+        <span class="spine-mark" aria-hidden="true">QB</span>
+        <div>
+          <p class="spine-name">Quincy Bookstore</p>
+          <p class="spine-sub">Books and month-end close</p>
+        </div>
+      </div>
+      <nav class="sections" id="nav" aria-label="Sections"></nav>
+      <div class="spine-end">
+        <button class="spine-fresh" data-act="fresh-open" aria-haspopup="dialog">Start fresh…</button>
+        <p class="spine-foot">Fictional company and data. Every entry must balance before it posts.</p>
+      </div>
+    </aside>
+
+    <main class="page">
+      <header class="page-head" id="hdr"></header>
+      <div class="page-body" id="app"></div>
+    </main>
+
+    <!-- the thumb index: one tab per month of the financial year -->
+    <nav class="thumb-index" id="months" aria-label="Months of the financial year"></nav>
+  </div>
+  <!-- confirmation before erasing the books; filled in by js/ui.js -->
+  <dialog class="confirm" id="fresh-dialog" aria-labelledby="fresh-title"></dialog>
+  <dialog class="confirm" id="plant-dialog" aria-labelledby="plant-title"></dialog>
+
+  <script src="js/core.js"></script>
+  <script src="js/books.js"></script>
+  <script src="js/close.js"></script>
+  <script src="js/commentary.js"></script>
+  <script src="js/excel.js"></script>
+  <script src="js/ui.js"></script>
+</body>
+</html>

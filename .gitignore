@@ -1,0 +1,14 @@
+# secrets
+.env
+
+# dependencies and environments
+node_modules/
+.venv/
+
+# Python caches
+__pycache__/
+.pytest_cache/
+
+# generated output and local tool settings
+*.xlsx
+.claude/settings.local.json

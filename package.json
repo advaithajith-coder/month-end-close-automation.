@@ -1,0 +1,15 @@
+{
+  "name": "month-end-automation",
+  "version": "1.0.0",
+  "description": "Quincy Bookstore: a month of transactions, closed automatically, with reconciliations, adjusting entries, financial statements and eight controls.",
+  "scripts": {
+    "start": "node serve.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "exceljs": "^4.4.0"
+  },
+  "private": true
+}

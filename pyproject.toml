@@ -1,0 +1,12 @@
+[project]
+name = "close-engine"
+version = "1.0.0"
+description = "Quincy Bookstore – automated month-end close engine (Python port of the browser app)"
+requires-python = ">=3.10"
+dependencies = ["openpyxl>=3.1"]
+
+[project.optional-dependencies]
+test = ["pytest>=8"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

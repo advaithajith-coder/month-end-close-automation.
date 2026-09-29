@@ -1,0 +1,25 @@
+{
+  "_about": "Hand-entered transactions added on top of the generated months, to prove both engines treat the newer templates and manual journal entries identically. Amounts in cents.",
+  "seed": 2026,
+  "periods": ["2026-01", "2026-02", "2026-03"],
+  "extras": {
+    "2026-01": [
+      {"date": "2026-01-06", "type": "owner_contribution", "amount": 500000},
+      {"date": "2026-01-09", "type": "loan_repayment", "amount": 1000000},
+      {"date": "2026-01-14", "type": "prepaid_purchase", "kind": "software", "amount": 240000, "months": 12, "starts": "this"},
+      {"date": "2026-01-15", "type": "publisher_return", "amount": 80000, "vendor": "Bluebird Press"},
+      {"date": "2026-01-22", "type": "stock_writeoff", "amount": 15000, "reason": "Water-damaged books"},
+      {"date": "2026-01-27", "type": "manual", "memo": "Emergency plumber for the café sink", "reason": "Invoice RP-118 paid by debit card",
+       "amount": 12550, "lines": [{"acct": "6700", "dr": 12550, "cr": 0}, {"acct": "1000", "dr": 0, "cr": 12550}]}
+    ],
+    "2026-02": [
+      {"date": "2026-02-03", "type": "owner_drawing", "amount": 200000},
+      {"date": "2026-02-18", "type": "prepaid_purchase", "kind": "insurance", "amount": 360000, "months": 6, "starts": "next"},
+      {"date": "2026-02-25", "type": "manual", "memo": "Reclassify café cups bought as store supplies", "reason": "Receipt review, Feb 25",
+       "amount": 4000, "lines": [{"acct": "5020", "dr": 4000, "cr": 0}, {"acct": "6700", "dr": 0, "cr": 4000}]}
+    ],
+    "2026-03": [
+      {"date": "2026-03-10", "type": "loan_repayment", "amount": 500000}
+    ]
+  }
+}
