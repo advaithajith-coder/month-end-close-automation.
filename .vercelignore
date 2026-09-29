@@ -1,0 +1,10 @@
+# Vercel only needs the page (index.html, js/, css/, vendor/) and the AI functions (api/, lib/).
+# The Python engine, tests and tools stay in the repo for people to read and run locally.
+close_engine/
+tests/
+tools/
+.claude/
+serve.js
+pyproject.toml
+requirements.txt
+.env.example

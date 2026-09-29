@@ -144,6 +144,20 @@ a short management summary written by an LLM on Groq from the closed figures.
   The check confirms each number *exists* in the close; a person still confirms it is attached to the right label.
 - **No key?** "Use template (no AI)" builds the same four-section summary deterministically.
 
+## Deploy to Vercel
+
+The whole app runs in the visitor's browser, so Vercel serves it as static files. The AI commentary
+runs as two Vercel functions, `api/ai-status.js` and `api/commentary.js`, which do what `serve.js`
+does locally. Both use `lib/ai.js`, so the prompt and the checks live in one place.
+
+1. Import the GitHub repo in Vercel. Framework preset: **Other**. No build command or output directory is needed.
+2. In **Settings → Environment Variables**, add `GROQ_API_KEY` (and optionally `GROQ_MODEL`), then redeploy.
+3. Without a key the app still works; commentary falls back to the built-in template.
+
+Each visitor's books are saved in their own browser. `.vercelignore` keeps the Python engine, tests
+and tools out of the deployment. The commentary endpoint only accepts JSON from the site's own pages,
+but anyone using the site spends your Groq quota, so use a free-tier key with no card attached.
+
 ## Files
 
 | File | Purpose |
@@ -154,3 +168,5 @@ a short management summary written by an LLM on Groq from the closed figures.
 | `js/ui.js` | Dashboard |
 | `js/commentary.js` | Commentary facts, number check, template fallback |
 | `serve.js` | Local server: serves the app and proxies commentary requests to Groq |
+| `lib/ai.js` | The CFO prompt and the Groq call, shared by `serve.js` and the Vercel functions |
+| `api/` | Vercel functions for the AI commentary |
