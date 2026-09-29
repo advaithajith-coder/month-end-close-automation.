@@ -491,7 +491,7 @@
     const status = ai.configured ? 'AI connected' : ai.offline ? 'AI server not reachable — start the app with node serve.js' : 'AI not set up — add GROQ_API_KEY to .env and restart node serve.js';
     let body;
     if (!c) {
-      body = `<p class="muted">A management summary of ${M.periodLabel(r.period)} with prioritised CFO recommendations, written from the closed figures. It is generated automatically after each successful close; every number in it is checked against the close before you see it.</p>`;
+      body = `<p class="muted">A management summary of ${M.periodLabel(r.period)} with prioritised AI recommendations, written from the closed figures. It is generated automatically after each successful close; every number in it is checked against the close before you see it.</p>`;
     } else {
       const chk = M.checkCommentaryNumbers(c.text, facts);
       const check = chk.unverified.length
@@ -501,7 +501,7 @@
         <p class="hint">${c.source === "groq" ? "Drafted by AI" : "Written from the template, no AI"} on ${esc(new Date(c.at).toLocaleString())}. Numbers are checked automatically; the wording is yours to review.</p>`;
     }
     return `<div class="card">
-      <div class="card-head"><h3>Month-end commentary &amp; CFO recommendations</h3><span class="muted">${status}</span></div>
+      <div class="card-head"><h3>Month-end commentary &amp; AI recommendations</h3><span class="muted">${status}</span></div>
       ${ui.commentaryError ? `<div class="banner bad">${esc(ui.commentaryError)}</div>` : ''}
       ${body}${buttons}</div>`;
   }
@@ -1070,7 +1070,7 @@
         ? `<ul class="plain">
              <li>${months.length} month${months.length === 1 ? '' : 's'} of books, ${closedN} of them closed and locked</li>
              <li>${entries.toLocaleString('en-US')} recorded transactions, including any you typed or edited</li>
-             <li>Stock counts, month-end commentary and CFO recommendations</li>
+             <li>Stock counts, month-end commentary and AI recommendations</li>
            </ul>`
         : '<p>There is nothing recorded yet, so there is nothing to erase.</p>';
       dlg.innerHTML = `

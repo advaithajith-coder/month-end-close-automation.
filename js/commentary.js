@@ -314,7 +314,7 @@
   };
 
   // Render plain-text commentary as HTML, highlighting any number that could not be verified.
-  const HEADINGS = ['headline', 'performance', 'sales by day of week', 'sales mix', 'break-even', 'break even', 'cash and balance sheet', 'suppliers and stock', 'close quality and items to watch', 'cfo recommendations', 'recommendations'];
+  const HEADINGS = ['headline', 'performance', 'sales by day of week', 'sales mix', 'break-even', 'break even', 'cash and balance sheet', 'suppliers and stock', 'close quality and items to watch', 'ai recommendations', 'cfo recommendations', 'recommendations'];
   const PRIORITY = /^\[?(high|medium|low)\]?\s*[:—–-]?\s*/i;
   M.renderCommentary = function (text, facts, esc) {
     const allowed = allowedNumbers(facts);
@@ -377,7 +377,7 @@
     ];
     if (watch.length) watch.forEach(x => lines.push(`- ${x.account} moved ${x.changePct} vs last month (${x.lastMonth} to ${x.thisMonth}) and needs an explanation.`));
     else lines.push('- No expense moved enough versus last month to need an explanation.');
-    lines.push('CFO recommendations');
+    lines.push('Recommendations'); // rule-based, so not labelled AI
     M.ruleRecommendations(metrics).forEach(r => lines.push(`- [${r.priority}] ${r.text}`));
     return lines.join('\n');
   };
