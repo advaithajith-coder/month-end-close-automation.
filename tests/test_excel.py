@@ -22,9 +22,12 @@ def evaluate(ws, ref: str) -> float:
         return float(v or 0)
     expr = v[1:]
 
+    # Add the range up here rather than expanding it into one long "A1+A2+..." expression:
+    # the journal column sums ~10,000 cells, which is too deeply nested for eval() to compile.
     def expand(m):
         c1, r1, c2, r2 = column_index_from_string(m[1]), int(m[2]), column_index_from_string(m[3]), int(m[4])
-        return "(" + "+".join(f"{get_column_letter(c)}{r}" for c in range(c1, c2 + 1) for r in range(r1, r2 + 1)) + ")"
+        total = sum(evaluate(ws, f"{get_column_letter(c)}{r}") for c in range(c1, c2 + 1) for r in range(r1, r2 + 1))
+        return f"({total!r})"
 
     expr = SUM.sub(expand, expr)
     expr = REF.sub(lambda m: f"({evaluate(ws, m[0])})", expr)

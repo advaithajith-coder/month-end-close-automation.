@@ -1,0 +1,46 @@
+name: Task for the AI agent
+description: One piece of work for the autonomous agent. Submitting this starts the agent.
+labels: ["agent"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        **Submitting this issue starts the AI agent** (it adds the `agent` label). It will open a pull request for you to review.
+
+        - Keep it to **one outcome**. Split bigger work into several issues.
+        - The agent can't ask you questions while it works, so write it for someone who has never seen this project.
+  - type: textarea
+    id: goal
+    attributes:
+      label: Goal
+      description: What should be true when this is done?
+      placeholder: e.g. The contact page has a form (name, email, message) that shows "Thanks!" after sending.
+    validations:
+      required: true
+  - type: textarea
+    id: context
+    attributes:
+      label: Context
+      description: Why is this needed, and where in the project is it? Name pages, files or error messages if you know them.
+      placeholder: e.g. Visitors can't reach me from the site. The page is src/pages/contact.astro.
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance criteria
+      description: Checkable conditions. The agent uses these as its checklist and reports on each one.
+      value: |
+        - [ ] 
+        - [ ] 
+    validations:
+      required: true
+  - type: textarea
+    id: out-of-scope
+    attributes:
+      label: Out of scope / don't touch
+      description: Anything the agent must not change.
+      placeholder: e.g. Don't change colours, the navbar, or any other page.
+  - type: textarea
+    id: notes
+    attributes:
+      label: Notes
+      description: Links, screenshots, examples, preferences.

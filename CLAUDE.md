@@ -24,6 +24,7 @@ python -m close_engine year --excel fy2026.xlsx # close all 12 months to Excel
 ```
 
 Python setup: `python -m venv .venv` then `.venv\Scripts\python -m pip install -r requirements.txt`.
+CI (`.github/workflows/ci.yml`) runs `pytest` and `test_lock.cjs` on every PR; keep it green.
 
 ## Layout
 
